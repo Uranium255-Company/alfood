@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+    @apply grid-cols-1 sm:inline-grid sm:absolute sm:bg-gray-900 z-10;
+}
+.link {
+    @apply p-3 m-3 bg-cyan-600 rounded-2xl;
+    @apply hover:bg-cyan-500 hover:rounded-md;
+    @apply transition-all duration-300 ease-in-out;
+    @apply hidden sm:block;
+}
+
+.phone-navbar-controls {
+    @apply flex justify-between z-10 sm:hidden bg-neutral-900;
+}
+#navbar-btn {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+#navbar-btn.active {
+    @apply -rotate-90;
+}
+
+.navbar-sliders {
+    @apply grid grid-cols-1 text-white text-center text-4xl;
+}
+
+.slider {
+    @apply w-screen sm:hidden bg-neutral-900 py-8 transition-all ease-in-out;
+    transform: translateX(-100%);
+    z-index: 1000;
+}
+
+.slider:nth-child(1) {transition-duration: 500ms;}
+.slider:nth-child(2) {transition-duration: 600ms;}
+.slider:nth-child(3) {transition-duration: 700ms;}
+.slider:nth-child(4) {transition-duration: 800ms;}
+
+.navbar-sliders.active .slider {
+    transform: translate(0%)
+}
+
+
+#phone-navbar {
+    @apply absolute top-0;
+}
+
+.center {left: 50%; top: 50%; transform: translate(-50%, -50%)}
+.center-bottom {left: 50%; bottom: -2px; transform: translate(-50%, 0%)}
+
+.products {
+    @apply relative h-64 sm:h-96 snap-mandatory snap-x bg-black overflow-scroll flex sm:mx-32 gap-2
+}
+.product {
+    @apply shrink-0 snap-start h-full w-full relative;
+}
+.product-img {
+    @apply h-full w-full object-cover brightness-50;
+}
+.product-title {
+    @apply absolute text-white center sm:text-5xl text-2xl;
+}
+
+@media screen and (max-width: 640px) {
+    .screen-height {
+        height: calc(100vh - 66px);;
+    }
+}
+
+
+.sm-link {
+    @apply flex-grow flex relative;
+    height: 50px;
+}
+.sm-link-text {
+    @apply m-auto;
+}
+.animation-col {
+    content: '';
+    height: 1.5px;
+    position: absolute;
+    width: 0%;
+    background-color: white;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    transition: all 666ms;
+}
+.sm-link:hover .animation-col {
+    width: 30%;
+}
+.screen-height {
+    height: 70vh;
+}
